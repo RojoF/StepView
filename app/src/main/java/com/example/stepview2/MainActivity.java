@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,12 +15,13 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtContenido;
-
+    ImageView imgHospi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtContenido = (TextView) findViewById(R.id.txtIndicacion);
+        imgHospi = (ImageView) findViewById(R.id.imageView);
         final StepView stepView = (StepView) findViewById(R.id.step_view);
         stepView.getState()
                 .animationType(StepView.ANIMATION_ALL)
@@ -47,12 +49,14 @@ public class MainActivity extends AppCompatActivity {
                     stepView.getState()
                     .selectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
                     txtContenido.setText(getString(R.string.ruta_uno));
+                    imgHospi.setImageResource(R.drawable.pasillo_uno);
                 }
 
                 if (step == 1) {
 
                     stepView.getCurrentStep();
                     txtContenido.setText(getString(R.string.ruta_dos));
+                    imgHospi.setImageResource(R.drawable.pasillo_dos);
                 }
 
             }
