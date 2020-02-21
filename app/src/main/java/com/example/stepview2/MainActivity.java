@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtContenido;
     ImageView imgHospi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         imgHospi = (ImageView) findViewById(R.id.imageView);
         final StepView stepView = (StepView) findViewById(R.id.step_view);
         stepView.getState()
-                .animationType(StepView.ANIMATION_ALL)
                 .steps(new ArrayList<String>() {{
                     add("Paso 1");
                     add("Paso 2");
@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
                     add("Paso 7");
                 }})
                 .stepsNumber(7)
-                .animationDuration(getResources().getInteger(android.R.integer.config_longAnimTime))
                 .commit();
+
         stepView.setOnStepClickListener(new StepView.OnStepClickListener() {
             @Override
             public void onStepClick(int step) {
@@ -45,18 +45,50 @@ public class MainActivity extends AppCompatActivity {
 
                 if (step == 0) {
 
-                    stepView.getCurrentStep();
+                    stepView.go(step, true);
                     stepView.getState()
-                    .selectedTextColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimaryDark));
+                            .selectedCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
+                            .commit();
                     txtContenido.setText(getString(R.string.ruta_uno));
                     imgHospi.setImageResource(R.drawable.pasillo_uno);
                 }
 
                 if (step == 1) {
 
-                    stepView.getCurrentStep();
+                    stepView.go(step, true);
+                    stepView.getState()
+                            .selectedCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
+                            .commit();
                     txtContenido.setText(getString(R.string.ruta_dos));
                     imgHospi.setImageResource(R.drawable.pasillo_dos);
+                }
+
+                if (step == 2) {
+
+                    stepView.go(step, true);
+                    stepView.getState()
+                            .selectedCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
+                            .commit();
+                    txtContenido.setText(getString(R.string.ruta_tres));
+                    imgHospi.setImageResource(R.drawable.pasillo_tres);
+                }
+                if (step == 2) {
+
+                    stepView.go(step, true);
+                    stepView.getState()
+                            .selectedCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
+                            .commit();
+                    txtContenido.setText(getString(R.string.ruta_tres));
+                    imgHospi.setImageResource(R.drawable.pasillo_tres);
+                }
+                if (step == 3) {
+
+                    stepView.go(step, true);
+                    stepView.getState()
+                            .selectedCircleColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary))
+                            .commit();
+                    txtContenido.setText(getString(R.string.ruta_cuatro));
+                    imgHospi.setImageResource(R.drawable.pasillo_cuatro);
                 }
 
             }
