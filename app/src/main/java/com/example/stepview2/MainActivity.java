@@ -2,7 +2,6 @@ package com.example.stepview2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtContenido;
     ImageView imgHospi;
+    int contadorB = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +26,11 @@ public class MainActivity extends AppCompatActivity {
         final StepView stepView = (StepView) findViewById(R.id.step_view);
         stepView.getState()
                 .steps(new ArrayList<String>() {{
-                    add("Paso 1");
-                    add("Paso 2");
-                    add("Paso 3");
-                    add("Paso 4");
-                    add("Paso 5");
-                    add("Paso 6");
-                    add("Paso 7");
+                 for (int i = 1; i<=contadorB; i++) {
+                     add("Paso" + i);
+                 }
                 }})
-                .stepsNumber(7)
+                .stepsNumber(contadorB)
                 .commit();
 
         stepView.setOnStepClickListener(new StepView.OnStepClickListener() {
